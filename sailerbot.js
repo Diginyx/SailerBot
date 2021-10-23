@@ -25,11 +25,11 @@ const T = new Twit({
     timeout_ms: 60 * 1000,
   });  
 
-const twitterChannel = '901377170545467442';
+const twitterChannel = '382670158692614144'; // shitposting_channel 
 
 // Create a stream to follow tweets
 const stream = T.stream('statuses/filter', {
-    follow: '32771325', // @RiseMonday 1204118236918435843
+    follow: '1204118236918435843', // @RiseMonday 1204118236918435843 
   });  
 
 stream.on('tweet', (tweet) => {

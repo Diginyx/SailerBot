@@ -99,7 +99,7 @@ client.on('messageCreate', (msg) => {
 //Help Command
 client.on('messageCreate', (msg) => {
   if (msg.content == 's!help') {
-    msg.channel.send(`s!joke to tell a joke \ns!setchannel [channelName] to redirect tweets \ns!checksetchannel to check where twitter messages are currently being sent`);
+    msg.channel.send(`s!joke to tell a joke \ns!setchannel [channelName] to redirect tweets \ns!checksetchannel to check where tweets are currently being sent`);
   }
 });
 

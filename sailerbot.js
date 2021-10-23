@@ -29,7 +29,7 @@ let twitterChannel = '382670158692614144'; // shitposting_channel
 
 // Create a stream to follow tweets
 const stream = T.stream('statuses/filter', {
-    follow: '1204118236918435843', // @RiseMonday 1204118236918435843 
+    follow: '32771325', // @RiseMonday 1204118236918435843 
   });  
 
 stream.on('tweet', (tweet) => {
@@ -85,7 +85,7 @@ client.on('messageCreate', (msg) => {
 //Help Command
 client.on('messageCreate', (msg) => {
   if (msg.content == 's!help') {
-    msg.channel.send(`s!joke to tell a joke \n s!setchannel [channelName] to redirect tweets \n s!checksetchannel to check where twitter messages are currently being sent`);
+    msg.channel.send(`s!joke to tell a joke \ns!setchannel [channelName] to redirect tweets \ns!checksetchannel to check where twitter messages are currently being sent`);
   }
 });
 

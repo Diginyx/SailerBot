@@ -38,8 +38,6 @@ stream.on('tweet', (tweet) => {
     return;
 });
 
-  
-
 // Adding jokes function
 
 // Jokes from dcslsoftware.com/20-one-liners-only-software-developers-understand/

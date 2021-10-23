@@ -25,7 +25,7 @@ const T = new Twit({
     timeout_ms: 60 * 1000,
   });  
 
-const twitterChannel = '382670158692614144'; // shitposting_channel 
+let twitterChannel = '382670158692614144'; // shitposting_channel 
 
 // Create a stream to follow tweets
 const stream = T.stream('statuses/filter', {

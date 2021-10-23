@@ -68,7 +68,8 @@ client.on('messageCreate', (msg) => {
 //Get Channel ID
 client.on('messageCreate', (msg) => {
   if (msg.content === 's!setchannel') {
-    msg.guild.channels.cache.find(channel => channel.name === "testing");
+    channelResult = msg.guild.channels.cache.find(channel => channel.name === "testing");
+    console.log(channelResult);
   }
 });
 

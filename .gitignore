@@ -5,6 +5,7 @@
 
 #sensitive files
 node_modules
+.env
 
 # User-specific files
 *.rsuser

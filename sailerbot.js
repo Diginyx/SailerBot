@@ -69,7 +69,8 @@ client.on('messageCreate', (msg) => {
 client.on('messageCreate', (msg) => {
   if (msg.content === 's!setchannel') {
     channelResult = msg.guild.channels.cache.find(channel => channel.name === "testing");
-    console.log(channelResult);
+    console.log(channelResult.id);
+    console.log(msg.content.substring(13, msg.content.length));
   }
 });
 

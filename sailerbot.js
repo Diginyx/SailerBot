@@ -74,6 +74,10 @@ client.on('messageCreate', (msg) => {
       twitterChannel = channelResult.id
       msg.channel.send(`Tweets have been redirected to Channel name: ${channelResult.name} Channel ID: ${channelResult.id}`);
     }
+    else
+    {
+      msg.channel.send(`Channel not found`);
+    }
   }
 });
 
@@ -84,6 +88,10 @@ client.on('messageCreate', (msg) => {
     if (channelResult)
     {
       msg.channel.send(`Tweets are being sent to Channel name: ${channelResult.name} Channel ID: ${twitterChannel}`);
+    }
+    else
+    {
+      msg.channel.send(`No channel set`);
     }
   }
 });

@@ -1,0 +1,1 @@
+worker: node sailerbot.js

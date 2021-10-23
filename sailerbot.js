@@ -29,7 +29,7 @@ const twitterChannel = '901377170545467442';
 
 // Create a stream to follow tweets
 const stream = T.stream('statuses/filter', {
-    follow: '1204118236918435843', // @RiseMonday
+    follow: '32771325', // @RiseMonday 1204118236918435843
   });  
 
 stream.on('tweet', (tweet) => {

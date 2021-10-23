@@ -69,8 +69,11 @@ client.on('messageCreate', (msg) => {
 client.on('messageCreate', (msg) => {
   if (msg.content.substring(0, 12) == 's!setchannel') {
     channelResult = msg.guild.channels.cache.find(channel => channel.name === msg.content.substring(13, msg.content.length));
-    twitterChannel = channelResult.id
-    msg.channel.send(`Tweets have been redirected to Channel name: ${channelResult.name} Channel ID: ${channelResult.id}`);
+    if (channelResult)
+    {
+      twitterChannel = channelResult.id
+      msg.channel.send(`Tweets have been redirected to Channel name: ${channelResult.name} Channel ID: ${channelResult.id}`);
+    }
   }
 });
 
@@ -78,7 +81,10 @@ client.on('messageCreate', (msg) => {
 client.on('messageCreate', (msg) => {
   if (msg.content == 's!checksetchannel') {
     channelResult = client.channels.cache.get(twitterChannel)
-    msg.channel.send(`Tweets are being sent to Channel name: ${channelResult.name} Channel ID: ${twitterChannel}`);
+    if (channelResult)
+    {
+      msg.channel.send(`Tweets are being sent to Channel name: ${channelResult.name} Channel ID: ${twitterChannel}`);
+    }
   }
 });
 

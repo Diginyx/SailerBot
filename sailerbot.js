@@ -65,12 +65,12 @@ client.on('messageCreate', (msg) => {
     }
   });
 
-//Get Channel ID
+//Change channel where tweets are sent
 client.on('messageCreate', (msg) => {
   if (msg.content.substring(0, 12) == 's!setchannel') {
-    channelResult = msg.guild.channels.cache.find(channel => channel.name === "testing");
-    console.log(channelResult.id);
-    console.log(msg.content.substring(13, msg.content.length));
+    channelResult = msg.guild.channels.cache.find(channel => channel.name === msg.content.substring(13, msg.content.length));
+    twitterChannel = channelResult.id
+    msg.channel.send(`Tweets have been redirected to Channel name: ${channelResult.name} Channel ID: ${twitterChannel}`);
   }
 });
 

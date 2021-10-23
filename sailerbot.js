@@ -77,7 +77,7 @@ client.on('messageCreate', (msg) => {
 //Check current tweet channel
 client.on('messageCreate', (msg) => {
   if (msg.content == 's!checksetchannel') {
-    channelResult = msg.channels.cache.get(twitterChannel)
+    channelResult = client.channels.cache.get(twitterChannel)
     msg.channel.send(`Tweets are being sent to Channel name: ${channelResult.name} Channel ID: ${twitterChannel}`);
   }
 });

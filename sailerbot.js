@@ -59,11 +59,18 @@ const jokes = [
   ];
 
 // Tell a joke
-  client.on('messageCreate', (msg) => {
+client.on('messageCreate', (msg) => {
     if (msg.content === 's!joke') {
       msg.channel.send(jokes[Math.floor(Math.random() * jokes.length)]);
     }
   });
+
+//Get Channel ID
+client.on('messageCreate', (msg) => {
+  if (msg.content === 's!setchannel') {
+    msg.guild.channels.cache.find(channel => channel.name === "testing");
+  }
+});
 
 // Adding messageReaction-role function
 client.on('messageReactionAdd', async (messageReaction, user) => {

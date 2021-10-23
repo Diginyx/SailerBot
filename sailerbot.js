@@ -70,7 +70,22 @@ client.on('messageCreate', (msg) => {
   if (msg.content.substring(0, 12) == 's!setchannel') {
     channelResult = msg.guild.channels.cache.find(channel => channel.name === msg.content.substring(13, msg.content.length));
     twitterChannel = channelResult.id
-    msg.channel.send(`Tweets have been redirected to Channel name: ${channelResult.name} Channel ID: ${twitterChannel}`);
+    msg.channel.send(`Tweets have been redirected to Channel name: ${channelResult.name} Channel ID: ${channelResult.id}`);
+  }
+});
+
+//Check current tweet channel
+client.on('messageCreate', (msg) => {
+  if (msg.content == 's!checksetchannel') {
+    channelResult = msg.channels.cache.get(twitterChannel)
+    msg.channel.send(`Tweets are being sent to Channel name: ${channelResult.name} Channel ID: ${twitterChannel}`);
+  }
+});
+
+//Help Command
+client.on('messageCreate', (msg) => {
+  if (msg.content == 's!help') {
+    msg.channel.send(`s!joke to tell a joke \n s!setchannel [channelName] to redirect tweets \n s!checksetchannel to check where twitter messages are currently being sent`);
   }
 });
 

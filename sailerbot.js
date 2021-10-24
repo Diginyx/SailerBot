@@ -23,7 +23,17 @@ const T = new Twit({
     access_token_secret: process.env.ACCESS_SECRET,
     bearer_token: process.env.BEARER_TOKEN,
     timeout_ms: 60 * 1000,
-  });  
+  }); 
+
+function isReply(tweet) {
+  if ( tweet.retweeted_status
+    || tweet.in_reply_to_status_id
+    || tweet.in_reply_to_status_id_str
+    || tweet.in_reply_to_user_id
+    || tweet.in_reply_to_user_id_str
+    || tweet.in_reply_to_screen_name )
+    return true
+} 
 
 let twitterChannel = '382670158692614144'; // shitposting_channel 
 
@@ -33,9 +43,12 @@ const stream = T.stream('statuses/filter', {
   });  
 
 stream.on('tweet', (tweet) => {
-    const twitterMessage = `https://twitter.com/${tweet.user.screen_name}/status/${tweet.id_str}`;
-    client.channels.cache.get(twitterChannel).send(twitterMessage);
-    return;
+    if(!isReply)
+    {
+       const twitterMessage = `https://twitter.com/${tweet.user.screen_name}/status/${tweet.id_str}`;
+       client.channels.cache.get(twitterChannel).send(twitterMessage);
+       return;
+    }
 });
 
 // Adding jokes function

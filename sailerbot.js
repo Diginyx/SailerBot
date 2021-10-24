@@ -25,6 +25,7 @@ const T = new Twit({
     timeout_ms: 60 * 1000,
   }); 
 
+//check if tweet is anything but a basic tweet
 function isReply(tweet) {
   if ( tweet.retweeted_status
     || tweet.in_reply_to_status_id
@@ -41,9 +42,11 @@ let twitterChannel = '382670158692614144'; // shitposting_channel
 const stream = T.stream('statuses/filter', {
     follow: '1204118236918435843', // @RiseMonday 1204118236918435843 
     follow: '1243196401439277063', //@FridaySailer 1243196401439277063
-    follow: '32771325', //@StupidCounter 32771325
+    follow: '1333461586510483457', //@XmasSailer 1333461586510483457
+    //follow: '32771325', //@StupidCounter 32771325
   });  
 
+// Send tweets from followed twitter accounts above
 stream.on('tweet', (tweet) => {
     if(!isReply(tweet))
     {
@@ -111,18 +114,43 @@ client.on('messageCreate', (msg) => {
   }
 });
 
-//Help Command
+//Ketamine command 50% change of either
 client.on('messageCreate', (msg) => {
   if (msg.content == 's!ketamine') {
-    msg.channel.send({files: ["../images/KrabsKetamine"]});
+    if(Math.random() >= 0.5)
+    {
+      msg.channel.send({files: ["./images/KrabsKetamine.jpg"]});
+    }
+    else
+    {
+      msg.channel.send('Spongebob, me boy, I just snorted a suitcase of ketamine and am going to fucking die agagagaga')
+    }
   }
 });
 
+//Ketamine command image
+client.on('messageCreate', (msg) => {
+  if (msg.content == 's!ketamineimage') {
+      msg.channel.send({files: ["./images/KrabsKetamine.jpg"]});
+  }
+});
+
+//Ketamine command text
+client.on('messageCreate', (msg) => {
+  if (msg.content == 's!ketaminetext') {
+      msg.channel.send('Spongebob, me boy, I just snorted a suitcase of ketamine and am going to fucking die agagagaga')
+  }
+});
 
 //Help Command
 client.on('messageCreate', (msg) => {
   if (msg.content == 's!help') {
-    msg.channel.send(`s!joke to tell a joke \ns!setchannel [channelName] to redirect tweets \ns!checksetchannel to check where tweets are currently being sent`);
+    msg.channel.send(`s!joke to tell a joke 
+                      \ns!setchannel [channelName] to redirect tweets 
+                      \ns!checksetchannel to check where tweets are currently being sent
+                      \ns!ketamine to show funny krabs ketamine image or sentence
+                      \ns!ketamineimage to show funny krabs ketamine image
+                      \ns!ketaminetext to show funny krabs ketamine text`);
   }
 });
 

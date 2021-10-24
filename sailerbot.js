@@ -40,6 +40,8 @@ let twitterChannel = '382670158692614144'; // shitposting_channel
 // Create a stream to follow tweets
 const stream = T.stream('statuses/filter', {
     follow: '1204118236918435843', // @RiseMonday 1204118236918435843 
+    follow: '1243196401439277063', //@FridaySailer 1243196401439277063
+    follow: '32771325', //@StupidCounter 32771325
   });  
 
 stream.on('tweet', (tweet) => {
@@ -108,6 +110,14 @@ client.on('messageCreate', (msg) => {
     }
   }
 });
+
+//Help Command
+client.on('messageCreate', (msg) => {
+  if (msg.content == 's!ketamine') {
+    msg.channel.send({files: ["../images/KrabsKetamine"]});
+  }
+});
+
 
 //Help Command
 client.on('messageCreate', (msg) => {

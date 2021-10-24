@@ -43,7 +43,7 @@ const stream = T.stream('statuses/filter', {
   });  
 
 stream.on('tweet', (tweet) => {
-    if(isReply)
+    if(!isReply)
     {
        const twitterMessage = `https://twitter.com/${tweet.user.screen_name}/status/${tweet.id_str}`;
        client.channels.cache.get(twitterChannel).send(twitterMessage);

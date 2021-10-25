@@ -40,16 +40,15 @@ let twitterChannel = '447567542991716352'; // shitposting_channel
 
 // Create a stream to follow tweets
 const stream = T.stream('statuses/filter', {
-    follow:           ['1204118236918435843', 
-                       '32771325',
-                       '1243196401439277063',
-                       '1333461586510483457',
-                       ].join(',')
-    // @RiseMonday 1204118236918435843 
-    //follow: '32771325',
-    //follow: '1243196401439277063', //@FridaySailer 1243196401439277063
-    //follow: '1333461586510483457', //@XmasSailer 1333461586510483457
-    //follow: '32771325', //@StupidCounter 32771325
+    follow: ['1204118236918435843', 
+             '32771325',
+             '1243196401439277063',
+             '1333461586510483457',
+             ].join(',')
+    //@RiseMonday 1204118236918435843 
+    //@FridaySailer 1243196401439277063
+    //@XmasSailer 1333461586510483457
+    //@StupidCounter 32771325
   });  
 
 // Send tweets from followed twitter accounts above
@@ -58,6 +57,7 @@ stream.on('tweet', (tweet) => {
     {
        const twitterMessage = `https://twitter.com/${tweet.user.screen_name}/status/${tweet.id_str}`;
        client.channels.cache.get(twitterChannel).send(twitterMessage);
+       client.channels.cache.get(twitterChannel).send(tweet);
        return;
     }
 });

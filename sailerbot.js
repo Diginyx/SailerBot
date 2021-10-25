@@ -88,14 +88,14 @@ const jokes = [
 
 // Tell a joke
 client.on('messageCreate', (msg) => {
-    if (msg.content.toLowerCase() === 's!joke') {
+    if (msg.content.toLowerCase() === 'k!joke') {
       msg.channel.send(jokes[Math.floor(Math.random() * jokes.length)]);
     }
   });
 
 //Change channel where tweets are sent
 client.on('messageCreate', (msg) => {
-  if (msg.content.substring(0, 12).toLowerCase() == 's!setchannel') {
+  if (msg.content.substring(0, 12).toLowerCase() == 'k!setchannel') {
     channelResult = msg.guild.channels.cache.find(channel => channel.name === msg.content.substring(13, msg.content.length));
     if (channelResult)
     {
@@ -111,7 +111,7 @@ client.on('messageCreate', (msg) => {
 
 //Check channel where tweets are being currently sent
 client.on('messageCreate', (msg) => {
-  if (msg.content.toLowerCase() == 's!checksetchannel') {
+  if (msg.content.toLowerCase() == 'k!checksetchannel') {
     channelResult = client.channels.cache.get(twitterChannel)
     if (channelResult)
     {
@@ -126,7 +126,7 @@ client.on('messageCreate', (msg) => {
 
 //Ketamine command 50% change of either
 client.on('messageCreate', (msg) => {
-  if (msg.content.toLowerCase() == 's!ketamine') {
+  if (msg.content.toLowerCase() == 'k!ketamine') {
     if(Math.random() >= 0.5)
     {
       msg.channel.send({files: ["./images/KrabsKetamine.jpg"]});
@@ -140,27 +140,27 @@ client.on('messageCreate', (msg) => {
 
 //Ketamine command image
 client.on('messageCreate', (msg) => {
-  if (msg.content.toLowerCase() == 's!ketamineimage') {
+  if (msg.content.toLowerCase() == 'k!ketamineimage') {
       msg.channel.send({files: ["./images/KrabsKetamine.jpg"]});
   }
 });
 
 //Ketamine command text
 client.on('messageCreate', (msg) => {
-  if (msg.content.toLowerCase() == 's!ketaminetext') {
+  if (msg.content.toLowerCase() == 'k!ketaminetext') {
       msg.channel.send('Spongebob, me boy, I just snorted a suitcase of ketamine and am going to fucking die agagagaga')
   }
 });
 
 //Help Command
 client.on('messageCreate', (msg) => {
-  if (msg.content.toLowerCase() == 's!help') {
-    msg.channel.send(`s!joke to tell a joke 
-                      \ns!setchannel [channelName] to redirect tweets 
-                      \ns!checksetchannel to check where tweets are currently being sent
-                      \ns!ketamine to show funny krabs ketamine image or sentence
-                      \ns!ketamineimage to show funny krabs ketamine image
-                      \ns!ketaminetext to show funny krabs ketamine text`);
+  if (msg.content.toLowerCase() == 'k!help') {
+    msg.channel.send(`k!joke to tell a joke 
+                      \nk!setchannel [channelName] to redirect tweets 
+                      \nk!checksetchannel to check where tweets are currently being sent
+                      \nk!ketamine to show funny krabs ketamine image or sentence
+                      \nk!ketamineimage to show funny krabs ketamine image
+                      \nk!ketaminetext to show funny krabs ketamine text`);
   }
 });
 

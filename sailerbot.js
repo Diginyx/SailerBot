@@ -36,7 +36,7 @@ function isReply(tweet) {
     return true
 } 
 
-let twitterChannel = '447567542991716352'; // shitposting_channel 
+let twitterChannel = '770495567393587210'; // shitposting_channel 
 
 // Create a stream to follow tweets
 const stream = T.stream('statuses/filter', {
@@ -54,17 +54,17 @@ const stream = T.stream('statuses/filter', {
 
 // Send tweets from followed twitter accounts above
 stream.on('tweet', (tweet) => {
+    console.log(isReply(tweet))
+    console.log('Retweeted Status: ' + tweet.retweeted_status);
+    console.log('In reply to status ID: ' + tweet.in_reply_to_status_id);
+    console.log('In reply to status ID string: ' + tweet.in_reply_to_status_id_str);
+    console.log('In reply to user ID: ' + tweet.in_reply_to_user_id);
+    console.log('In reply to user ID string: ' + tweet.in_reply_to_user_id_str);
+    console.log('In reply to screen name: ' + tweet.in_reply_to_screen_name);
     if(!isReply(tweet))
     {
        const twitterMessage = `https://twitter.com/${tweet.user.screen_name}/status/${tweet.id_str}`;
        client.channels.cache.get(twitterChannel).send(twitterMessage);
-       T.get('statuses/show/:id', { id: '1452545622884618244' }, function(err, data, response) {
-        console.log('test err     : ' + err )
-        console.log('isReply  : ' + isReply(JSON.stringify(data)))
-        console.log('test data    : ' + JSON.stringify(data) )
-        console.log('test response: ' + JSON.stringify(response) )
-      })
-       //console.log(JSON.stringify(tweet)); //
        return;
     }
 });

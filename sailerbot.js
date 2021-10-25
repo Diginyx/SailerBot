@@ -57,7 +57,7 @@ stream.on('tweet', (tweet) => {
     {
        const twitterMessage = `https://twitter.com/${tweet.user.screen_name}/status/${tweet.id_str}`;
        client.channels.cache.get(twitterChannel).send(twitterMessage);
-       client.channels.cache.get(twitterChannel).send(JSON.stringify(tweet)); //
+       console.log(JSON.stringify(tweet)); //
        return;
     }
 });

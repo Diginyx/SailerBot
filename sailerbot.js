@@ -60,7 +60,7 @@ stream.on('tweet', (tweet) => {
        T.get('statuses/filter/:id', { id: '1452545622884618244' }, function (err, data, response) {
         console.log(data)
       })
-       console.log(JSON.stringify(tweet)); //
+       //console.log(JSON.stringify(tweet)); //
        return;
     }
 });

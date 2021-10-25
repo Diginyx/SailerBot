@@ -40,10 +40,11 @@ let twitterChannel = '447567542991716352'; // shitposting_channel
 
 // Create a stream to follow tweets
 const stream = T.stream('statuses/filter', {
-    follow: ['1204118236918435843', 
-             '32771325',
-             '1243196401439277063',
-             '1333461586510483457',
+    follow: ['1204118236918435843', //@RiseMonday
+             '32771325', //@StupidCounter
+             '1243196401439277063', //@FridaySailer
+             '1333461586510483457', //@XmasSailer
+             '15560223' //@TechRadar
              ].join(',')
     //@RiseMonday 1204118236918435843 
     //@FridaySailer 1243196401439277063
@@ -60,7 +61,7 @@ stream.on('tweet', (tweet) => {
        T.get('statuses/show/:id', { id: '1452545622884618244' }, function(err, data, response) {
         console.log('test err     : ' + err )
         console.log('isReply  : ' + isReply(data))
-        console.log('test data    : ' + data )
+        console.log('test data    : ' + JSON.stringify(data) )
         console.log('test response: ' + response )
       })
        //console.log(JSON.stringify(tweet)); //

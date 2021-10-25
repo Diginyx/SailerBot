@@ -36,7 +36,7 @@ function isReply(tweet) {
     return true
 } 
 
-let twitterChannel = '770495567393587210'; // shitposting_channel 
+let twitterChannel = '382670158692614144'; // shitposting_channel 
 
 // Create a stream to follow tweets
 const stream = T.stream('statuses/filter', {
@@ -44,12 +44,8 @@ const stream = T.stream('statuses/filter', {
              '32771325', //@StupidCounter
              '1243196401439277063', //@FridaySailer
              '1333461586510483457', //@XmasSailer
-             '15560223' //@TechRadar
+             //'15560223' //@TechRadar
              ].join(',')
-    //@RiseMonday 1204118236918435843 
-    //@FridaySailer 1243196401439277063
-    //@XmasSailer 1333461586510483457
-    //@StupidCounter 32771325
   });  
 
 // Send tweets from followed twitter accounts above

@@ -78,14 +78,14 @@ const jokes = [
 
 // Tell a joke
 client.on('messageCreate', (msg) => {
-    if (msg.content === 's!joke') {
+    if (msg.content.toLowerCase() === 's!joke') {
       msg.channel.send(jokes[Math.floor(Math.random() * jokes.length)]);
     }
   });
 
 //Change channel where tweets are sent
 client.on('messageCreate', (msg) => {
-  if (msg.content.substring(0, 12) == 's!setchannel') {
+  if (msg.content.substring(0, 12).toLowerCase() == 's!setchannel') {
     channelResult = msg.guild.channels.cache.find(channel => channel.name === msg.content.substring(13, msg.content.length));
     if (channelResult)
     {
@@ -101,7 +101,7 @@ client.on('messageCreate', (msg) => {
 
 //Check channel where tweets are being currently sent
 client.on('messageCreate', (msg) => {
-  if (msg.content == 's!checksetchannel') {
+  if (msg.content.toLowerCase() == 's!checksetchannel') {
     channelResult = client.channels.cache.get(twitterChannel)
     if (channelResult)
     {
@@ -116,7 +116,7 @@ client.on('messageCreate', (msg) => {
 
 //Ketamine command 50% change of either
 client.on('messageCreate', (msg) => {
-  if (msg.content == 's!ketamine') {
+  if (msg.content.toLowerCase() == 's!ketamine') {
     if(Math.random() >= 0.5)
     {
       msg.channel.send({files: ["./images/KrabsKetamine.jpg"]});
@@ -130,21 +130,21 @@ client.on('messageCreate', (msg) => {
 
 //Ketamine command image
 client.on('messageCreate', (msg) => {
-  if (msg.content == 's!ketamineimage') {
+  if (msg.content.toLowerCase() == 's!ketamineimage') {
       msg.channel.send({files: ["./images/KrabsKetamine.jpg"]});
   }
 });
 
 //Ketamine command text
 client.on('messageCreate', (msg) => {
-  if (msg.content == 's!ketaminetext') {
+  if (msg.content.toLowerCase() == 's!ketaminetext') {
       msg.channel.send('Spongebob, me boy, I just snorted a suitcase of ketamine and am going to fucking die agagagaga')
   }
 });
 
 //Help Command
 client.on('messageCreate', (msg) => {
-  if (msg.content == 's!help') {
+  if (msg.content.toLowerCase() == 's!help') {
     msg.channel.send(`s!joke to tell a joke 
                       \ns!setchannel [channelName] to redirect tweets 
                       \ns!checksetchannel to check where tweets are currently being sent

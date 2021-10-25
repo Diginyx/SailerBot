@@ -54,7 +54,7 @@ const stream = T.stream('statuses/filter', {
 
 // Send tweets from followed twitter accounts above
 stream.on('tweet', (tweet) => {
-    console.log(isReply(tweet))
+    console.log(String(isReply(tweet)))
     console.log('Retweeted Status: ' + tweet.retweeted_status);
     console.log('In reply to status ID: ' + tweet.in_reply_to_status_id);
     console.log('In reply to status ID string: ' + tweet.in_reply_to_status_id_str);

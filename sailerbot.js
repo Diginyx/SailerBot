@@ -41,6 +41,7 @@ let twitterChannel = '382670158692614144'; // shitposting_channel
 // Create a stream to follow tweets
 const stream = T.stream('statuses/filter', {
     follow: '1204118236918435843', // @RiseMonday 1204118236918435843 
+    follow: '32771325',
     follow: '1243196401439277063', //@FridaySailer 1243196401439277063
     follow: '1333461586510483457', //@XmasSailer 1333461586510483457
     //follow: '32771325', //@StupidCounter 32771325

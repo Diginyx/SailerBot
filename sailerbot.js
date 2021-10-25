@@ -44,7 +44,7 @@ const stream = T.stream('statuses/filter', {
              '1243196401439277063', //@FridaySailer
              '1333461586510483457', //@XmasSailer
              //'15560223' //@TechRadar
-             '32771325', //@StupidCounter
+             //'32771325', //@StupidCounter
              ].join(',')
   });  
 

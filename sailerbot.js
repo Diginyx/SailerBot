@@ -40,7 +40,7 @@ let twitterChannel = '447567542991716352'; // shitposting_channel
 
 // Create a stream to follow tweets
 const stream = T.stream('statuses/filter', {
-    follow: ['1204118236918435843', 
+    follow:           ['1204118236918435843', 
                        '32771325',
                        '1243196401439277063',
                        '1333461586510483457',

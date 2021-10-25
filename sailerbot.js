@@ -57,8 +57,10 @@ stream.on('tweet', (tweet) => {
     {
        const twitterMessage = `https://twitter.com/${tweet.user.screen_name}/status/${tweet.id_str}`;
        client.channels.cache.get(twitterChannel).send(twitterMessage);
-       T.get('statuses/filter/', { id: '1452545622884618244' }, function (err, data, response) {
-        console.log(data)
+       T.get('statuses/show/:id', { id: '1452545622884618244' }, function(err, data, response) {
+        console.log('test err     : ' + err )
+        console.log('test data    : ' + data.text )
+        console.log('test response: ' + response )
       })
        //console.log(JSON.stringify(tweet)); //
        return;

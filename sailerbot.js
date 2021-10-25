@@ -36,14 +36,14 @@ function isReply(tweet) {
     return true
 } 
 
-let twitterChannel = '382670158692614144'; // shitposting_channel 
+let twitterChannel = '447567542991716352'; // shitposting_channel 
 
 // Create a stream to follow tweets
 const stream = T.stream('statuses/filter', {
-    follow: { follow: [1204118236918435843, 
-                       32771325,
-                       1243196401439277063,
-                       1243196401439277063,
+    follow: { follow: ['1204118236918435843', 
+                       '32771325',
+                       '1243196401439277063',
+                       '1333461586510483457',
                        ].join(',') }
     // @RiseMonday 1204118236918435843 
     //follow: '32771325',

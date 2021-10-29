@@ -36,7 +36,7 @@ function isReply(tweet) {
     return true
 } 
 
-let twitterChannel = '382670158692614144'; // shitposting_channel 
+let twitterChannel = '382670158692614144'; // shitposting_channel 382670158692614144
 
 // Create a stream to follow tweets
 const stream = T.stream('statuses/filter', {
@@ -193,3 +193,23 @@ client.on('messageReactionRemove', async (messageReaction, user) => {
         }
     } else return;
   });
+
+  client.on('interactionCreate', async interaction => {
+    if (!interaction.isCommand()) return;
+
+    const { commandName } = interaction;
+
+    switch (commandName) {
+        case 'ping':
+            await interaction.reply('Pong!');
+            break;
+        
+        case 'server':
+            await interaction.reply(`Server name: ${interaction.guild.name}\nTotal members: ${interaction.guild.memberCount}`);
+            break;
+
+        case 'user':
+            await interaction.reply(`Your tag: ${interaction.user.tag}\nYour id: ${interaction.user.id}`);
+            break;
+    }
+});

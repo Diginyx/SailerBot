@@ -28,21 +28,6 @@ client.on('ready', () => {
     })
 });
 
-client.on('interactionCreate', async (interaction) => {
-  if (!interaction.isCommand()) {
-    return
-  }
-
-  const { commandName, options } = interaction
-
-  if (commandName === 'ping') {
-    interaction.reply({
-      content: 'pong',
-      ephemeral: true,
-    })
-  }
-});
-
 client.login(process.env.BOT_TOKEN)
 
 const Twit = require('twit');
@@ -224,3 +209,19 @@ client.on('messageReactionRemove', async (messageReaction, user) => {
         }
     } else return;
   });
+
+// ping slash command
+client.on('interactionCreate', async (interaction) => {
+  if (!interaction.isCommand()) {
+    return
+  }
+
+  const { commandName, options } = interaction
+
+  if (commandName === 'ping') {
+    interaction.reply({
+      content: 'pong',
+      ephemeral: true,
+    })
+  }
+});

@@ -10,23 +10,7 @@ const client = new Client({
 
 client.on('ready', () => {
     console.log('Bot is ready');
-
-
-    const guildId = '382669726964383750'
-    const guild = client.guilds.cache.get(guildId)
-    let commands
-
-    if (guild) {
-      commands = guild.commands
-    } else {
-      commands = client.application?.commands
-    }
-
-    commands?.create({
-      name: 'ping',
-      description: 'Replies with pong.',
-    })
-});
+  });
 
 client.login(process.env.BOT_TOKEN)
 
@@ -209,19 +193,3 @@ client.on('messageReactionRemove', async (messageReaction, user) => {
         }
     } else return;
   });
-
-// ping slash command
-client.on('interactionCreate', async (interaction) => {
-  if (!interaction.isCommand()) {
-    return
-  }
-
-  const { commandName, options } = interaction
-
-  if (commandName === 'ping') {
-    interaction.reply({
-      content: 'pong',
-      ephemeral: true,
-    })
-  }
-});

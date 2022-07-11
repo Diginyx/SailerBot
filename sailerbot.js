@@ -12,12 +12,12 @@ client.on('ready', () => {
     console.log('Bot is ready');
 
 
-    const guildID = '382669726964383750'
-    const guild = client.guilds.cache.get(guildID)
+    const guildId = '382669726964383750'
+    const guild = client.guilds.cache.get(guildId)
     let commands
 
     if (guild) {
-      commands = guild.comands
+      commands = guild.commands
     } else {
       commands = client.application?.commands
     }

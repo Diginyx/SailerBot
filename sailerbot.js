@@ -41,7 +41,7 @@ client.on('interactionCreate', async (interaction) => {
       ephemeral: true,
     })
   }
-})
+});
 
 client.login(process.env.BOT_TOKEN)
 

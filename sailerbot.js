@@ -10,7 +10,38 @@ const client = new Client({
 
 client.on('ready', () => {
     console.log('Bot is ready');
-  });
+
+
+    const guildID = '382669726964383750'
+    const guild = client.guilds.cache.get(guildID)
+    let commands
+
+    if (guild) {
+      commands = guild.comands
+    } else {
+      commands = client.application?.commands
+    }
+
+    commands?.create({
+      name: 'ping',
+      description: 'Replies with pong.',
+    })
+});
+
+client.on('interactionCreate', async (interaction) => {
+  if (!interaction.isCommand()) {
+    return
+  }
+
+  const { commandName, options } = interaction
+
+  if (commandName === 'ping') {
+    interaction.reply({
+      content: 'pong',
+      ephemeral: true,
+    })
+  }
+})
 
 client.login(process.env.BOT_TOKEN)
 
